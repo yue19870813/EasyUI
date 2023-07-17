@@ -1,0 +1,26 @@
+{
+  "name": "com.ituuz.easyui",
+  "version": "0.0.1",
+  "displayName": "EasyUI",
+  "description": "easy UI",
+  "dependencies": {
+    
+  },
+  "hideInEditor": false,
+  "keywords": [
+    "UI",
+    "mvvm"
+  ],
+  "author": {
+    "name": "ituuz",
+    "email": "ituuz@gmail.com",
+    "url": "https://"
+  },
+  "samples": [
+    {
+      "displayName": "samples",
+      "description": "samples",
+      "path": "Samples~/samples"
+    }
+  ]
+}
