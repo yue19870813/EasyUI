@@ -14,35 +14,27 @@ namespace EUI
         public event PropertyChangedEventHandler PropertyChanged;
         public void _Init_()
         {
-            var t = this.GetType();
-            var props = t.GetProperties();
+            // var t = this.GetType();
+            // var props = t.GetProperties();
 
-            // var methods = t.GetMethods();
-
-            // foreach (MethodInfo method in methods)
+            // foreach (PropertyInfo prop in props)
             // {
-            //     Debug.Log("method name : " + method.Name);
+            //     if (prop.IsDefined(typeof(ChangeWatcherAttribute)))
+            //     {
+            //         // string setterName = "set_" + prop.Name;
+            //         // Debug.Log("setterName = " + setterName);
+            //         // DynamicMethod setterMethod = new DynamicMethod(setterName, null, new Type[] {t, prop.GetType()}, t, true);
+            //         // ILGenerator il = setterMethod.GetILGenerator();
+            //         // il.Emit(OpCodes.Ldarg_0);
+            //         // il.Emit(OpCodes.Ldarg_1);
+            //         // il.Emit(OpCodes.Call, prop.GetSetMethod());
+            //         // il.Emit(OpCodes.Ret);
+
+            //         // // prop.SetMethod = setterMethod;
+            //         // prop.SetMethod.CreateDelegate();
+            //     }
             // }
-
-            foreach (PropertyInfo prop in props)
-            {
-                if (prop.IsDefined(typeof(ChangeWatcherAttribute)))
-                {
-                    // string setterName = "set_" + prop.Name;
-                    // Debug.Log("setterName = " + setterName);
-                    // DynamicMethod setterMethod = new DynamicMethod(setterName, null, new Type[] {t, prop.GetType()}, t, true);
-                    // ILGenerator il = setterMethod.GetILGenerator();
-                    // il.Emit(OpCodes.Ldarg_0);
-                    // il.Emit(OpCodes.Ldarg_1);
-                    // il.Emit(OpCodes.Call, prop.GetSetMethod());
-                    // il.Emit(OpCodes.Ret);
-
-                    // // prop.SetMethod = setterMethod;
-                    // prop.SetMethod.CreateDelegate();
-                }
-            }
             OnInit();
-            
         }
 
        
@@ -56,19 +48,12 @@ namespace EUI
 
         }
 
-        protected void OnPropertyChanged([CallerMemberName]string propertyName = null) 
+        protected void OnPropertyChanged<T>(ref T obj, T value, [CallerMemberName]string propertyName = null) 
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private void InterceptSetter(PropertyInfo property, object obj)
-        {
-            MethodInfo setMethod = property.GetSetMethod();
-            if (setMethod != null)
+            if (obj == null || !obj.Equals(value))
             {
-                // 自定义 Setter 拦截逻辑
-                // 在这里可以添加你的逻辑处理
-                OnPropertyChanged();
+                obj = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }

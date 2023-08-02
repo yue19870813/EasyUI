@@ -10,6 +10,8 @@ public class TestComponent : MonoBehaviour
 
         var ui = new TestUI();
         ui.SetName("Jhon Deep");
+        ui.SetName("Jhon Deep");
+        ui.SetName("Jhon Lino");
 
     }
 
