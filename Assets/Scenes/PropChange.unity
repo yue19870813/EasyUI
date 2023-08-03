@@ -691,7 +691,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5464700107899468423, guid: 3b7ca17c53191124d895eb2f24f442de,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2046643808}
+      addedObject: {fileID: 2046643810}
+    - targetCorrespondingSourceObject: {fileID: 5464700107899468423, guid: 3b7ca17c53191124d895eb2f24f442de,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2046643811}
   m_SourcePrefab: {fileID: 100100000, guid: 3b7ca17c53191124d895eb2f24f442de, type: 3}
 --- !u!1 &1624323471
 GameObject:
@@ -912,7 +916,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2046643808}
+      - m_Target: {fileID: 2046643810}
         m_TargetAssemblyTypeName: TestUI, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
@@ -968,7 +972,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1469636620}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2046643808
+--- !u!114 &2046643810
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -980,3 +984,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6a89309c07014438793bc0343e38cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  viewName: V1111
+--- !u!114 &2046643811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046643806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6d82bcba9845b45a46d6dae7f786eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewName: V2222

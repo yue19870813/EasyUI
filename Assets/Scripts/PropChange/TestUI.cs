@@ -19,14 +19,14 @@ public class TestUI : ViewBase
     public void SetName(string name)
     {
         // model.Name = name;
-        Debug.Log("Name数据产生变化，变化值为：" + name);
+        Debug.Log("TestUI --- Name数据产生变化，变化值为：" + name);
     }
 
     [PropertyWatcher(Model = "TestModel2", Name = "Age")]
     public void SetAge(int age)
     {
         // model.Name = name;
-        Debug.Log("Age数据产生变化，变化值为：" + age);
+        Debug.Log("TestUI --- Age数据产生变化，变化值为：" + age);
     }
 
     
@@ -43,5 +43,6 @@ public class TestUI : ViewBase
 
         TestModel2 model2 = EUI.ModelManager.GetModel<TestModel2>();
         model2.Age = 33;
+        model2.Pos = new Vector3(1, 2, 3);
     }
 }

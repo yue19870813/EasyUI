@@ -19,6 +19,8 @@ namespace EUI
 
         private Dictionary<string, List<Watcher>> _watcherDict;
 
+        public string viewName = "ViewBase";
+
         public ViewBase()
         {
             
