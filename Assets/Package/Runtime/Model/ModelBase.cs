@@ -43,11 +43,6 @@ namespace EUI
 
         }
 
-        public void SetProperty(object obj, object value)
-        {
-
-        }
-
         protected void OnPropertyChanged<T>(ref T obj, T value, [CallerMemberName]string propertyName = null) 
         {
             if (obj == null || !obj.Equals(value))

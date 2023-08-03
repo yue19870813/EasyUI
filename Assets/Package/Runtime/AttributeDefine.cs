@@ -16,6 +16,13 @@ namespace EUI
 
     }
 
+    [AttributeUsage(AttributeTargets.Method)]
+    public class PropertyWatcherAttribute : Attribute
+    {
+        public string Model { get; set; }
+        public string Name { get; set; }
+    }
+
     // 生成getter和setter方法
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
     public class ChangeWatcherAttribute : Attribute

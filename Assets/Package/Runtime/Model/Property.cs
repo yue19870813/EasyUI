@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Properties;
@@ -5,6 +6,7 @@ using UnityEngine;
 
 namespace EUI
 {
+    [Obsolete]
     public class Property
     {
         public delegate void ValueChangedDelegate();
