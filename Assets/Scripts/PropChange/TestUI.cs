@@ -9,8 +9,8 @@ public class TestUI : ViewBase
 {
     public override void Awake()
     {
-        EUI.ModelManager.Register<TestModel>();
-        EUI.ModelManager.Register<TestModel2>();
+        ModelManager.Register<TestModel>();
+        ModelManager.Register<TestModel2>();
         base.Awake();
         Debug.Log("________TestUI:Awake__________");
     }
@@ -38,10 +38,10 @@ public class TestUI : ViewBase
     public void OnClick() 
     {
         Debug.Log("=== Button OnClick ===");
-        TestModel model = EUI.ModelManager.GetModel<TestModel>();
+        TestModel model = ModelManager.GetModel<TestModel>();
         model.Name = "Yue";
 
-        TestModel2 model2 = EUI.ModelManager.GetModel<TestModel2>();
+        TestModel2 model2 = ModelManager.GetModel<TestModel2>();
         model2.Age = 33;
         model2.Pos = new Vector3(1, 2, 3);
     }

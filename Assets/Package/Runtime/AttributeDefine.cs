@@ -12,4 +12,10 @@ namespace EUI
         public string Name { get; set; }
     }
 
+    [AttributeUsage(AttributeTargets.Property)]
+    public class ObserveObjectAttribute : Attribute
+    {
+
+    }
+
 }

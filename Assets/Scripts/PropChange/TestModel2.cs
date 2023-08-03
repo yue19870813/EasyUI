@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EUI;
 
-public class TestModel2 : EUI.ModelBase
+public class TestModel2 : ModelBase
 {
 
     private int age;

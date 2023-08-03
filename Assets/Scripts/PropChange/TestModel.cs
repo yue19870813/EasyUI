@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using EUI;
 
-public class TestModel : EUI.ModelBase
+public class TestModel : ModelBase
 {
 
     private string name;

@@ -7,8 +7,8 @@ public class TestUI2 : ViewBase
 {
     public override void Awake()
     {
-        EUI.ModelManager.Register<TestModel>();
-        EUI.ModelManager.Register<TestModel2>();
+        ModelManager.Register<TestModel>();
+        ModelManager.Register<TestModel2>();
         base.Awake();
         Debug.Log("2________TestUI2:Awake__________");
     }
