@@ -18,12 +18,11 @@ namespace EUI
             var hasKey = _modelTable.ContainsKey(name);
             if (!hasKey)
             {
-                Debug.Log("ModelManager=====" + name);
                 _modelTable.Add(name, model);
             }
             else
             {
-                Debug.LogWarning(name + "已经注册！");
+                Debug.LogWarning(name + " has already regist.");
             }
         }
 
@@ -31,12 +30,20 @@ namespace EUI
         {
             var t = typeof(T);
             var name = t.FullName;
-            return (T)(ModelManager._modelTable[name]);
+            if (ModelManager._modelTable.ContainsKey(name))
+            {
+                return (T)(ModelManager._modelTable[name]);
+            }
+            return null;
         }
 
         public static ModelBase GetModel(string name)
         {
-            return ModelManager._modelTable[name];
+            if (ModelManager._modelTable.ContainsKey(name))
+            {
+                return ModelManager._modelTable[name];
+            }
+            return null;
         }
     }
 }

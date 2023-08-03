@@ -7,17 +7,6 @@ using EUI;
 
 public class TestUI : ViewBase
 {
-    // TestModel model;
-    // public TestUI()
-    // {
-    //     // model = new TestModel();
-
-    //     // model.PropertyChanged += (s, e) => {
-    //     //     Type type = s.GetType();
-    //     //     PropertyInfo prop = type.GetProperty(e.PropertyName);
-    //     //     Debug.Log(e.PropertyName + " = " + prop.GetValue(s));
-    //     // };
-    // }
     public override void Awake()
     {
         EUI.ModelManager.Register<TestModel>();

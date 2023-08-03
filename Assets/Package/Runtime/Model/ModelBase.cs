@@ -14,26 +14,6 @@ namespace EUI
         public event PropertyChangedEventHandler PropertyChanged;
         public void _Init_()
         {
-            // var t = this.GetType();
-            // var props = t.GetProperties();
-
-            // foreach (PropertyInfo prop in props)
-            // {
-            //     if (prop.IsDefined(typeof(ChangeWatcherAttribute)))
-            //     {
-            //         // string setterName = "set_" + prop.Name;
-            //         // Debug.Log("setterName = " + setterName);
-            //         // DynamicMethod setterMethod = new DynamicMethod(setterName, null, new Type[] {t, prop.GetType()}, t, true);
-            //         // ILGenerator il = setterMethod.GetILGenerator();
-            //         // il.Emit(OpCodes.Ldarg_0);
-            //         // il.Emit(OpCodes.Ldarg_1);
-            //         // il.Emit(OpCodes.Call, prop.GetSetMethod());
-            //         // il.Emit(OpCodes.Ret);
-
-            //         // // prop.SetMethod = setterMethod;
-            //         // prop.SetMethod.CreateDelegate();
-            //     }
-            // }
             OnInit();
         }
 
