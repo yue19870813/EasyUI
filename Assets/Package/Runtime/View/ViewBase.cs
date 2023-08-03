@@ -38,8 +38,7 @@ namespace EUI
             var methods = t.GetMethods();
             foreach (MethodInfo method in methods)
             {
-                
-                var pwAtt = method.GetCustomAttribute<PropertyWatcherAttribute>();
+                var pwAtt = method.GetCustomAttribute<WatcherAttribute>();
                 if (pwAtt != null)
                 {
                     List<Watcher> watcherList = null;

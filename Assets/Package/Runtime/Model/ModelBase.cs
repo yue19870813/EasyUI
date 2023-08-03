@@ -23,11 +23,11 @@ namespace EUI
 
         }
 
-        protected void OnPropertyChanged<T>(ref T obj, T value, [CallerMemberName]string propertyName = null) 
+        protected void OnPropertyChanged<T>(ref T field, T value, [CallerMemberName]string propertyName = null) 
         {
-            if (obj == null || !obj.Equals(value))
+            if (!EqualityComparer<T>.Default.Equals(field, value))
             {
-                obj = value;
+                field = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }

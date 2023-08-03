@@ -15,14 +15,14 @@ public class TestUI : ViewBase
         Debug.Log("________TestUI:Awake__________");
     }
 
-    [PropertyWatcher(Model = "TestModel", Name = "Name")]
+    [Watcher(Model = "TestModel", Name = "Name")]
     public void SetName(string name)
     {
         // model.Name = name;
         Debug.Log("TestUI --- Name数据产生变化，变化值为：" + name);
     }
 
-    [PropertyWatcher(Model = "TestModel2", Name = "Age")]
+    [Watcher(Model = "TestModel2", Name = "Age")]
     public void SetAge(int age)
     {
         // model.Name = name;
