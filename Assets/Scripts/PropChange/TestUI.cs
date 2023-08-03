@@ -10,6 +10,7 @@ public class TestUI : ViewBase
     public override void Awake()
     {
         EUI.ModelManager.Register<TestModel>();
+        EUI.ModelManager.Register<TestModel2>();
         base.Awake();
         Debug.Log("________TestUI:Awake__________");
     }
@@ -21,7 +22,14 @@ public class TestUI : ViewBase
         Debug.Log("Name数据产生变化，变化值为：" + name);
     }
 
-    // Update is called once per frame
+    [PropertyWatcher(Model = "TestModel2", Name = "Age")]
+    public void SetAge(int age)
+    {
+        // model.Name = name;
+        Debug.Log("Age数据产生变化，变化值为：" + age);
+    }
+
+    
     void Update()
     {
         
@@ -32,5 +40,8 @@ public class TestUI : ViewBase
         Debug.Log("=== Button OnClick ===");
         TestModel model = EUI.ModelManager.GetModel<TestModel>();
         model.Name = "Yue";
+
+        TestModel2 model2 = EUI.ModelManager.GetModel<TestModel2>();
+        model2.Age = 33;
     }
 }
