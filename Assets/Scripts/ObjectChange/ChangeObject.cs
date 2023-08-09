@@ -1,18 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
+using EUI;
 using UnityEngine;
 
-public class ChangeObject : MonoBehaviour
+public class InnerChangeObject : ObservableObject
 {
-    // Start is called before the first frame update
-    void Start()
+    private int age;
+    public int Age
     {
-        
+        get => age;
+        set => OnPropertyChanged(ref age, value);
     }
 
-    // Update is called once per frame
-    void Update()
+}
+
+public class ChangeObject : ObservableObject
+{
+    private string name;
+    public string Name
     {
-        
+        get => name;
+        set => OnPropertyChanged(ref name, value);
     }
+
+    private InnerChangeObject sub;
+    public InnerChangeObject Sub
+    {
+        get => sub;
+        set => OnPropertyChanged(ref sub, value);
+    }
+
+    public ChangeObject() 
+    {
+        Debug.Log("----ChangeObject constructor----");
+    }
+
 }

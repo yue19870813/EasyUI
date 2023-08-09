@@ -1,20 +1,17 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using UnityEngine;
 
 namespace EUI
 {
-    public class ObservableObject : INotifyPropertyChanged
+    public class ObservableObject : Property
     {
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertyChanged<T>(ref T field, T value, [CallerMemberName]string propertyName = null) 
+        public ObservableObject()
         {
-            if (!EqualityComparer<T>.Default.Equals(field, value))
-            {
-                field = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            }
+            Debug.Log("----Base ObservableObject constructor----");
         }
+
     }
 }

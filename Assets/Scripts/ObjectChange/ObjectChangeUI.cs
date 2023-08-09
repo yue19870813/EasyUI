@@ -5,15 +5,22 @@ using UnityEngine;
 
 public class ObjectChangeUI : ViewBase
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Awake()
     {
-        
+        ModelManager.Register<ObjectChangeModel>();
+        base.Awake();
+        Debug.Log("________ObjectChangeUI:Awake__________");
     }
 
-    // Update is called once per frame
-    void Update()
+    // [Watcher(Model = "ObjectChangeModel", Name = "Name")]
+    // public void SetName(string name)
+    // {
+    //     // model.Name = name;
+    //     Debug.Log("ObjectChangeUI --- Name数据产生变化，变化值为：" + name);
+    // }
+
+    public void OnClick() 
     {
-        
+        Debug.Log("=== ObjectChangeUI Button OnClick ===");
     }
 }

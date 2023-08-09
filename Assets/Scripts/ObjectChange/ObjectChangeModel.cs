@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using EUI;
 
-public class ObjectChangeModel : MonoBehaviour
+
+public class ObjectChangeModel : ModelBase
 {
-    // Start is called before the first frame update
-    void Start()
+    public ChangeObject obj;
+    [ObserveObject]
+    public ChangeObject Obj
     {
-        
+        get => obj;
+        set => OnPropertyChanged(ref obj, value);
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public override void OnInit() 
     {
-        
+        obj = new ChangeObject();
+        obj.Name = "ChangeObject";
+        obj.Sub = new InnerChangeObject();
+        obj.Sub.Age = 99;
     }
 }

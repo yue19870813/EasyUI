@@ -9,9 +9,8 @@ using UnityEngine;
 
 namespace EUI
 {
-    public class ModelBase : INotifyPropertyChanged
+    public class ModelBase : Property
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         public void _Init_()
         {
             OnInit();
@@ -23,13 +22,5 @@ namespace EUI
 
         }
 
-        protected void OnPropertyChanged<T>(ref T field, T value, [CallerMemberName]string propertyName = null) 
-        {
-            if (!EqualityComparer<T>.Default.Equals(field, value))
-            {
-                field = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
 }
