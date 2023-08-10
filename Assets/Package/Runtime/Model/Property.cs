@@ -44,13 +44,15 @@ namespace EUI
             }
         }
 
-        protected void OnPropertyChanged<T>(ref T field, T value, [CallerMemberName]string propertyName = null) 
+        protected bool OnPropertyChanged<T>(ref T field, T value, [CallerMemberName]string propertyName = null) 
         {
             if (!EqualityComparer<T>.Default.Equals(field, value))
             {
                 field = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                return true;
             }
+            return false;
         }
 
         protected void InvokePropertyChanged([CallerMemberName]string propertyName = null)
