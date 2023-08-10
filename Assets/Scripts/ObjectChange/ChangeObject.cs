@@ -14,7 +14,7 @@ public class InnerChangeObject : ObservableObject
 
 public class ChangeObject : ObservableObject
 {
-    private string name;
+    private string name = "default";
     public string Name
     {
         get => name;

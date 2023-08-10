@@ -41,7 +41,7 @@ namespace EUI
                 var pwAtt = method.GetCustomAttribute<WatcherAttribute>();
                 if (pwAtt != null)
                 {
-                    List<Watcher> watcherList = null;
+                    List<Watcher> watcherList;
                     var modelName = pwAtt.Model;
                     _watcherDict.ContainsKey(modelName);
                     if (!_watcherDict.ContainsKey(modelName))
@@ -53,10 +53,12 @@ namespace EUI
                     {
                         watcherList = _watcherDict[modelName];
                     }
-                    var watcher = new Watcher();
-                    watcher.methodInfo = method;
-                    watcher.model = modelName;
-                    watcher.name = pwAtt.Name;
+                    var watcher = new Watcher
+                    {
+                        methodInfo = method,
+                        model = modelName,
+                        name = pwAtt.Name
+                    };
                     watcherList.Add(watcher);
                 }
             }

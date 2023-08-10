@@ -3,7 +3,7 @@ using EUI;
 
 public class ObjectChangeModel : ModelBase
 {
-    public ChangeObject obj;
+    public ChangeObject obj = new();
     [ObserveObject]
     public ChangeObject Obj
     {
@@ -11,12 +11,18 @@ public class ObjectChangeModel : ModelBase
         set => OnPropertyChanged(ref obj, value);
     }
 
+    private string name;
+    public string Name
+    {
+        get => name;
+        set => OnPropertyChanged(ref name, value);
+    }
 
     public override void OnInit() 
     {
-        obj = new ChangeObject();
-        obj.Name = "ChangeObject";
-        obj.Sub = new InnerChangeObject();
-        obj.Sub.Age = 99;
+        // obj = new ChangeObject();
+        // obj.Name = "ChangeObject";
+        // obj.Sub = new InnerChangeObject();
+        // obj.Sub.Age = 99;
     }
 }
