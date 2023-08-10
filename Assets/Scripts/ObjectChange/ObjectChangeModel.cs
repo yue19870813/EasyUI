@@ -20,9 +20,6 @@ public class ObjectChangeModel : ModelBase
 
     public override void OnInit() 
     {
-        // obj = new ChangeObject();
-        // obj.Name = "ChangeObject";
-        // obj.Sub = new InnerChangeObject();
-        // obj.Sub.Age = 99;
+        
     }
 }

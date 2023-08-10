@@ -21,7 +21,8 @@ public class ChangeObject : ObservableObject
         set => OnPropertyChanged(ref name, value);
     }
 
-    private InnerChangeObject sub;
+    private InnerChangeObject sub = new();
+    [ObserveObject]
     public InnerChangeObject Sub
     {
         get => sub;

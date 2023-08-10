@@ -11,28 +11,28 @@ namespace EUI
 {
     public class ModelBase : Property
     {
-        public new void _Init_()
-        {
-            base._Init_();
-            AddChangeWatcher();
-        }
+        // public new void _Init_()
+        // {
+        //     base._Init_();
+        //     // AddChangeWatcher();
+        // }
 
-        private void AddChangeWatcher()
-        {
-            var t = this.GetType();
-            var properties = t.GetProperties();
-            foreach (PropertyInfo property in properties)
-            {
-                var ooAtt = property.GetCustomAttribute<ObserveObjectAttribute>();
-                if (ooAtt != null)
-                {
-                    var value = ((ObservableObject)property.GetValue(this));
-                    value.PropertyChanged += (s, e) => {
-                        InvokePropertyChanged(property.Name);
-                    };
-                    // Debug.Log(property.Name + " --- " + ((ObservableObject)property.GetValue(this)));
-                }
-            }
-        }
+        // private void AddChangeWatcher()
+        // {
+        //     var t = this.GetType();
+        //     var properties = t.GetProperties();
+        //     foreach (PropertyInfo property in properties)
+        //     {
+        //         var ooAtt = property.GetCustomAttribute<ObserveObjectAttribute>();
+        //         if (ooAtt != null)
+        //         {
+        //             var value = ((ObservableObject)property.GetValue(this));
+        //             value.PropertyChanged += (s, e) => {
+        //                 InvokePropertyChanged(property.Name);
+        //             };
+        //             // Debug.Log(property.Name + " --- " + ((ObservableObject)property.GetValue(this)));
+        //         }
+        //     }
+        // }
     }
 }

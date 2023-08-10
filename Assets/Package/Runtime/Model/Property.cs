@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
@@ -13,12 +14,31 @@ namespace EUI
 
         public void _Init_()
         {
+            AddChangeWatcher();
             OnInit();
         }
 
         public virtual void OnInit()
         {
 
+        }
+
+        private void AddChangeWatcher()
+        {
+            var t = this.GetType();
+            var properties = t.GetProperties();
+            foreach (PropertyInfo property in properties)
+            {
+                var ooAtt = property.GetCustomAttribute<ObserveObjectAttribute>();
+                if (ooAtt != null)
+                {
+                    var value = ((ObservableObject)property.GetValue(this));
+                    value.PropertyChanged += (s, e) => {
+                        InvokePropertyChanged(property.Name);
+                    };
+                    Debug.Log(property.Name + " --- " + ((ObservableObject)property.GetValue(this)));
+                }
+            }
         }
 
         protected void OnPropertyChanged<T>(ref T field, T value, [CallerMemberName]string propertyName = null) 
