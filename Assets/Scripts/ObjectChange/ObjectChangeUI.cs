@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using EUI;
@@ -38,7 +39,20 @@ public class ObjectChangeUI : ViewBase
     {
         Debug.Log("=== OnChangeObjClick Button OnClick ===");
         ObjectChangeModel model = ModelManager.GetModel<ObjectChangeModel>();
-        model.Obj.Name = "Obj name JJJJJohn~~~~";
+        if (model.Obj == null)
+        {
+            model.Obj = new ChangeObject
+            {
+                Name = "Obj name JJJJJohn~~~~"
+            };
+        }
+        else 
+        {
+            Debug.Log("=== rrrr ===");
+            var rd = new System.Random();
+            model.Obj.Name = "RandomName-" + rd.Next();
+        }
+        
     }
 
     public void OnChangeSubObjClick() 

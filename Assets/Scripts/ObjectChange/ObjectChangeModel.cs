@@ -3,7 +3,7 @@ using EUI;
 
 public class ObjectChangeModel : ModelBase
 {
-    public ChangeObject obj = new();
+    public ChangeObject obj;
     [ObserveObject]
     public ChangeObject Obj
     {

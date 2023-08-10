@@ -34,5 +34,10 @@ namespace EUI
         //         }
         //     }
         // }
+        protected new void OnPropertyChanged<T>(ref T field, T value, [CallerMemberName]string propertyName = null) 
+        {
+            base.OnPropertyChanged(ref field, value, propertyName);
+            this.AddChangeWatcher();
+        }
     }
 }

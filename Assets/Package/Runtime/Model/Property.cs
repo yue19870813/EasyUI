@@ -23,7 +23,7 @@ namespace EUI
 
         }
 
-        private void AddChangeWatcher()
+        protected void AddChangeWatcher()
         {
             var t = this.GetType();
             var properties = t.GetProperties();
@@ -33,10 +33,13 @@ namespace EUI
                 if (ooAtt != null)
                 {
                     var value = ((ObservableObject)property.GetValue(this));
-                    value.PropertyChanged += (s, e) => {
-                        InvokePropertyChanged(property.Name);
-                    };
-                    Debug.Log(property.Name + " --- " + ((ObservableObject)property.GetValue(this)));
+                    if (value != null)
+                    {
+                        value.PropertyChanged += (s, e) => {
+                            InvokePropertyChanged(property.Name);
+                        };
+                    }
+                    // Debug.Log("===AddChangeWatcher:" + property.Name + " ---- " + ((ObservableObject)property.GetValue(this)));
                 }
             }
         }
