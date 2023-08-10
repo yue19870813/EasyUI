@@ -30,18 +30,18 @@ namespace EUI
         {
             var t = typeof(T);
             var name = t.FullName;
-            if (ModelManager._modelTable.ContainsKey(name))
+            if (_modelTable.ContainsKey(name))
             {
-                return (T)(ModelManager._modelTable[name]);
+                return (T)_modelTable[name];
             }
             return null;
         }
 
         public static ModelBase GetModel(string name)
         {
-            if (ModelManager._modelTable.ContainsKey(name))
+            if (_modelTable.ContainsKey(name))
             {
-                return ModelManager._modelTable[name];
+                return _modelTable[name];
             }
             return null;
         }

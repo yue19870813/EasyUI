@@ -10,11 +10,8 @@ namespace EUI
     {
         private class Watcher {
             public MethodInfo methodInfo;
-
             public string model;
-
             public string name;
-
         }
 
         private Dictionary<string, List<Watcher>> _watcherDict;
@@ -34,7 +31,7 @@ namespace EUI
         void InitWatcher()
         {
             _watcherDict = new Dictionary<string, List<Watcher>>();
-            var t = this.GetType();
+            var t = GetType();
             var methods = t.GetMethods();
             foreach (MethodInfo method in methods)
             {

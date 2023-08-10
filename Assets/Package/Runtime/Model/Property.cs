@@ -32,7 +32,7 @@ namespace EUI
                 var ooAtt = property.GetCustomAttribute<ObserveObjectAttribute>();
                 if (ooAtt != null)
                 {
-                    var value = ((ObservableObject)property.GetValue(this));
+                    var value = (ObservableObject)property.GetValue(this);
                     if (value != null)
                     {
                         value.PropertyChanged += (s, e) => {
