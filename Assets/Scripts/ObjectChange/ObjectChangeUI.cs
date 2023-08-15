@@ -59,6 +59,18 @@ public class ObjectChangeUI : ViewBase
     {
         Debug.Log("=== OnChangeSubObjClick Button OnClick ===");
         ObjectChangeModel model = ModelManager.GetModel<ObjectChangeModel>();
-        model.Obj.Sub.Age = 99;
+        if (model.Obj.Sub == null)
+        {
+            model.Obj.Sub = new InnerChangeObject
+            {
+                Age = 9999
+            };
+        }
+        else
+        {
+            var rd = new System.Random();
+            model.Obj.Sub.Age = rd.Next();
+        }
     }
+
 }

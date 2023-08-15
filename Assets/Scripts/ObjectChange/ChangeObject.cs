@@ -4,6 +4,7 @@ using UnityEngine;
 public class InnerChangeObject : ObservableObject
 {
     private int age;
+    [ObserveObject]
     public int Age
     {
         get => age;
@@ -21,7 +22,7 @@ public class ChangeObject : ObservableObject
         set => OnPropertyChanged(ref name, value);
     }
 
-    private InnerChangeObject sub = new();
+    private InnerChangeObject sub;
     [ObserveObject]
     public InnerChangeObject Sub
     {

@@ -25,7 +25,7 @@ namespace EUI
 
         protected void AddChangeWatcher()
         {
-            var t = this.GetType();
+            var t = GetType();
             var properties = t.GetProperties();
             foreach (PropertyInfo property in properties)
             {
