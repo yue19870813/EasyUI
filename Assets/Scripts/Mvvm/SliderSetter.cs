@@ -5,14 +5,9 @@ using UnityEngine;
 public class SliderSetter : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Object model;
+    public string field;
+    public Object Reference;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
